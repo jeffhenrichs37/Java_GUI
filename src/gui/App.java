@@ -29,6 +29,9 @@ public class App {
         JLabel lb1Select;
 
 
+
+
+
         JFrame jframe = new JFrame("Welcome");
         jframe.setVisible(true);
         jframe.setSize(500, 500);
@@ -67,7 +70,14 @@ public class App {
         employeeBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EmployeesWindow emp = new EmployeesWindow();
+
+                EmployeesWindow emp = null;
+                try{
+                    emp = new EmployeesWindow();
+                }catch (Exception ex){
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+
                 emp.setVisible(true);
             }
         });

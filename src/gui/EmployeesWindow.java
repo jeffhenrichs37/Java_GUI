@@ -6,13 +6,25 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import net.proteanit.sql.DbUtils;
+
+
 
 public class EmployeesWindow extends JFrame{
 
     JPanel contentPane;
     Connection connection = null;
+    JLabel labelTUID;
+    JLabel deleteLabel;
+    JTextField textFieldTUID;
+    JTable employeeTable;
+    JScrollPane scrollPane;
 
-    public EmployeesWindow(){
+    public EmployeesWindow() throws ClassNotFoundException,InstantiationException, IllegalAccessException, SQLException {
+        connection = MySQLConnection.connect();
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(100, 100, 797, 312);
@@ -25,7 +37,20 @@ public class EmployeesWindow extends JFrame{
         displayBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String query = "SELECT * from "+MySQLConnection.username + "db.EMPLOYEE;";
+                PreparedStatement pst;
+                try{
+                    pst = connection.prepareStatement(query);
+                    try{
+                        ResultSet resultSet = pst.executeQuery();
+                        employeeTable.setModel(DbUtils.resultSetToTableModel(resultSet));
 
+                    }catch(SQLException ex) {
+                        JOptionPane.showMessageDialog(null, ex);
+                    }
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
             }
         });
         displayBtn.setBounds(20, 61, 154, 23);
@@ -35,7 +60,12 @@ public class EmployeesWindow extends JFrame{
         addData.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                AddEmployeeWindow addEmp = new AddEmployeeWindow();
+                AddEmployeeWindow addEmp = null;
+                try {
+                    addEmp = new AddEmployeeWindow();
+                }catch (Exception ex){
+                    JOptionPane.showMessageDialog(null, ex);
+                }
                 addEmp.setVisible(true);
             }
         });
@@ -47,7 +77,15 @@ public class EmployeesWindow extends JFrame{
         deleteBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                try{
+                    String query="set foreign_key_checks = 0;\ndelete from "+MySQLConnection.username+"db.EMPLOYEE where TUID = "+textFieldTUID.getText()+";";
+                    PreparedStatement pst = connection.prepareStatement(query);
+                    pst.execute();
+                    JOptionPane.showMessageDialog(null, "Data Delete Successfully");
+                    pst.close();
+                }catch (Exception ex){
+                    JOptionPane.showMessageDialog(null, ex);
+                }
             }
         });
         deleteBtn.setBounds(57, 226, 89, 23);
@@ -58,34 +96,45 @@ public class EmployeesWindow extends JFrame{
         label1.setBounds(448, 11, 80, 33);
         contentPane.add(label1);
 
-        JScrollPane scrollPane = new JScrollPane();
+        scrollPane = new JScrollPane();
         scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         scrollPane.setBounds(184, 44, 587, 221);
         contentPane.add(scrollPane);
 
-        JTable employeeTable = new JTable();
+        employeeTable = new JTable();
         employeeTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         scrollPane.setViewportView(employeeTable);
 
-        JTextField textFieldTUID = new JTextField();
+        textFieldTUID = new JTextField();
         textFieldTUID.setBounds(88, 195, 86, 20);
         contentPane.add(textFieldTUID);
         textFieldTUID.setColumns(18);
 
-        JLabel deleteLabel = new JLabel("Delete Entry");
+        deleteLabel = new JLabel("Delete Entry");
         deleteLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
         deleteLabel.setBounds(60, 170, 86, 14);
         contentPane.add(deleteLabel);
 
-        JLabel labelTUID = new JLabel("TUID");
+        labelTUID = new JLabel("TUID");
         labelTUID.setBounds(35, 198, 32, 14);
         contentPane.add(labelTUID);
     }
 
     public static void main(String[] args) {
 
-        EmployeesWindow frame = new EmployeesWindow();
-        frame.setVisible(true);
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try{
+                    EmployeesWindow frame = new EmployeesWindow();
+                    frame.setVisible(true);
+                }catch (Exception ex){
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
+        });
+
+
     }
 
 

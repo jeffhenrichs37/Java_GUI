@@ -3,6 +3,12 @@ package gui;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 
 public class AddEmployeeWindow extends JFrame {
 
@@ -26,9 +32,13 @@ public class AddEmployeeWindow extends JFrame {
     JTextField tfF_START;
     JTextField tfF_END;
 
+    Connection connection = null;
 
-    public AddEmployeeWindow(){
+    public AddEmployeeWindow() throws ClassNotFoundException, InstantiationException, SQLException, IllegalAccessException {
 
+        connection = MySQLConnection.connect();
+
+        //set global time_zone = '+00:00';
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(100, 100, 285, 488);
         contentPane = new JPanel();
@@ -204,8 +214,65 @@ public class AddEmployeeWindow extends JFrame {
         tfF_END.setBounds(158, 392, 86, 20);
         contentPane.add(tfF_END);
 
+        JButton submitBtn = new JButton("Submit");
+        submitBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                try {
+                    String query = "INSERT into "+MySQLConnection.username+"db.EMPLOYEE(TUID, FNAME, LNAME, EMAIL, PHONE, POSITION, SUN_START, SUN_END, M_START, M_END, TU_START, TU_END, W_START, W_END, TH_START, TH_END, FRI_START, FRI_END) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+                    PreparedStatement pst = connection.prepareStatement(query);
+                    pst.setString(1, tfTUID.getText());
+                    pst.setString(2, tfFNAME.getText());
+                    pst.setString(3, tfLNAME.getText());
+                    pst.setString(4, tfEMAIL.getText());
+                    pst.setString(5, tfPHONE.getText());
+                    pst.setString(6, tfPOSITION.getText());
+                    pst.setString(7, tfSU_START.getText());
+                    pst.setString(8, tfSU_END.getText());
+                    pst.setString(9, tfM_START.getText());
+                    pst.setString(10, tfM_END.getText());
+                    pst.setString(11, tfTU_START.getText());
+                    pst.setString(12, tfTU_END.getText());
+                    pst.setString(13, tfW_START.getText());
+                    pst.setString(14, tfW_END.getText());
+                    pst.setString(15, tfTH_START.getText());
+                    pst.setString(16, tfTH_END.getText());
+                    pst.setString(17, tfF_START.getText());
+                    pst.setString(18, tfF_END.getText());
+                    pst.execute();
+
+                    JOptionPane.showMessageDialog(null, "Data Saved Successfully");
+                    tfTUID.setText("");
+                    tfFNAME.setText("");
+                    tfLNAME.setText("");
+                    tfEMAIL.setText("");
+                    tfPHONE.setText("");
+                    tfPOSITION.setText("");
+                    tfSU_START.setText("");
+                    tfSU_END.setText("");
+                    tfM_START.setText("");
+                    tfM_END.setText("");
+                    tfTU_START.setText("");
+                    tfTU_END.setText("");
+                    tfW_START.setText("");
+                    tfW_END.setText("");
+                    tfTH_START.setText("");
+                    tfTH_END.setText("");
+                    tfF_START.setText("");
+                    tfF_END.setText("");
+                    pst.close();
 
 
+                }catch(Exception ex){
+                    ex.printStackTrace();;
+                }
+            }
+        });
+        submitBtn.setFont(new Font("Tahoma", Font.BOLD, 12));
+        submitBtn.setBounds(64, 412, 89, 23);
+        contentPane.add(submitBtn);
     }
 
     public static void main(String[] args) {
