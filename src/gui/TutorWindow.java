@@ -12,31 +12,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class AppointmentWindow extends JFrame {
+public class TutorWindow extends JFrame {
 
     JPanel contentPane;
     Connection connection = null;
-    JLabel label_APT_ID;
+    JLabel labelTUID;
     JLabel deleteLabel;
-    JTextField tf_APT_ID;
-    JTable appointmentTable;
+    JTextField textFieldTUID;
+    JTable majorTable;
     JScrollPane scrollPane;
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                try{
-                    AppointmentWindow frame = new AppointmentWindow();
-                    frame.setVisible(true);
-                }catch (Exception ex){
-                    JOptionPane.showMessageDialog(null, ex);
-                }
-            }
-        });
-    }
-
-    public AppointmentWindow() throws ClassNotFoundException,InstantiationException, IllegalAccessException, SQLException {
+    public TutorWindow() throws ClassNotFoundException,InstantiationException, IllegalAccessException, SQLException {
         connection = MySQLConnection.connect();
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -46,17 +32,17 @@ public class AppointmentWindow extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
-        JButton displayBtn = new JButton("Display Appointments");
+        JButton displayBtn = new JButton("Display Data");
         displayBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String query = "SELECT * from "+MySQLConnection.username + "db.APPOINTMENT;";
+                String query = "SELECT * from "+MySQLConnection.username + "db.TUTOR;";
                 PreparedStatement pst;
                 try{
                     pst = connection.prepareStatement(query);
                     try{
                         ResultSet resultSet = pst.executeQuery();
-                        appointmentTable.setModel(DbUtils.resultSetToTableModel(resultSet));
+                        majorTable.setModel(DbUtils.resultSetToTableModel(resultSet));
 
                     }catch(SQLException ex) {
                         JOptionPane.showMessageDialog(null, ex);
@@ -69,32 +55,32 @@ public class AppointmentWindow extends JFrame {
         displayBtn.setBounds(20, 61, 154, 23);
         contentPane.add(displayBtn);
 
-        JButton addData = new JButton("Add Appointment");
+        JButton addData = new JButton("Add Data");
         addData.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                AddAppointmentWindow addApp = null;
+                AddTutorWindow addTutor = null;
                 try {
-                    addApp = new AddAppointmentWindow();
+                    addTutor = new AddTutorWindow();
                 }catch (Exception ex){
                     JOptionPane.showMessageDialog(null, ex);
                 }
-                addApp.setVisible(true);
+                addTutor.setVisible(true);
             }
         });
         addData.setBounds(20, 95, 154, 23);
         contentPane.add(addData);
 
 
-        JButton deleteBtn = new JButton("Delete An Appointment");
+        JButton deleteBtn = new JButton("Delete");
         deleteBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try{
-                    String query="DELETE FROM "+MySQLConnection.username+"db.APPOINTMENT where APT_ID = "+tf_APT_ID.getText()+";";
+                    String query="delete from "+MySQLConnection.username+"db.TUTOR where TUID = "+textFieldTUID.getText()+";";
                     PreparedStatement pst = connection.prepareStatement(query);
                     pst.execute();
-                    JOptionPane.showMessageDialog(null, "Appointment Deleted Successfully");
+                    JOptionPane.showMessageDialog(null, "Data Delete Successfully");
                     pst.close();
                 }catch (Exception ex){
                     JOptionPane.showMessageDialog(null, ex);
@@ -104,7 +90,7 @@ public class AppointmentWindow extends JFrame {
         deleteBtn.setBounds(57, 226, 89, 23);
         contentPane.add(deleteBtn);
 
-        JLabel label1 = new JLabel("Appointments");
+        JLabel label1 = new JLabel("Tutors");
         label1.setFont(new Font("Tahoma", Font.BOLD, 14));
         label1.setBounds(448, 11, 80, 33);
         contentPane.add(label1);
@@ -114,22 +100,41 @@ public class AppointmentWindow extends JFrame {
         scrollPane.setBounds(184, 44, 587, 221);
         contentPane.add(scrollPane);
 
-        appointmentTable = new JTable();
-        appointmentTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-        scrollPane.setViewportView(appointmentTable);
+        majorTable = new JTable();
+        majorTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+        scrollPane.setViewportView(majorTable);
 
-        tf_APT_ID = new JTextField();
-        tf_APT_ID.setBounds(88, 195, 86, 20);
-        contentPane.add(tf_APT_ID);
-        tf_APT_ID.setColumns(19);
+        textFieldTUID = new JTextField();
+        textFieldTUID.setBounds(88, 195, 86, 20);
+        contentPane.add(textFieldTUID);
+        textFieldTUID.setColumns(18);
 
-        deleteLabel = new JLabel("Appointment Genius");
+        deleteLabel = new JLabel("Delete Entry");
         deleteLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
         deleteLabel.setBounds(60, 170, 86, 14);
         contentPane.add(deleteLabel);
 
-        label_APT_ID = new JLabel("APT ID");
-        label_APT_ID.setBounds(35, 198, 32, 14);
-        contentPane.add(label_APT_ID);
+        labelTUID = new JLabel("TUID");
+        labelTUID.setBounds(35, 198, 32, 14);
+        contentPane.add(labelTUID);
     }
+
+    public static void main(String[] args) {
+
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try{
+                    TutorWindow frame = new TutorWindow();
+                    frame.setVisible(true);
+                }catch (Exception ex){
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
+        });
+
+
+    }
+
+
 }

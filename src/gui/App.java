@@ -126,6 +126,14 @@ public class App {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                TutorWindow tutor = null;
+                try{
+                    tutor = new TutorWindow();
+                }catch (Exception ex){
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+
+                tutor.setVisible(true);
             }
         });
 

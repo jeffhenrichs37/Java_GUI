@@ -21,12 +21,19 @@ public class EmployeesWindow extends JFrame{
     JTextField textFieldTUID;
     JTable employeeTable;
     JScrollPane scrollPane;
+    JLabel tutors_who_work_on_this_day;
+    JLabel tutors_who_work_at_this_time;
+    JTextField tutorDay;
+    JTextField tutorTime;
+    JButton tutorTimeBtn;
+    JButton tutorDayBtn;
+    JTable tutorTimeTable;
 
     public EmployeesWindow() throws ClassNotFoundException,InstantiationException, IllegalAccessException, SQLException {
         connection = MySQLConnection.connect();
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setBounds(100, 100, 797, 312);
+        setBounds(100, 100, 1000, 400);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5,5,5,5));
         setContentPane(contentPane);
@@ -52,7 +59,7 @@ public class EmployeesWindow extends JFrame{
                 }
             }
         });
-        displayBtn.setBounds(20, 61, 154, 23);
+        displayBtn.setBounds(20, 35, 154, 23);
         contentPane.add(displayBtn);
 
         JButton addData = new JButton("Add Data");
@@ -68,9 +75,8 @@ public class EmployeesWindow extends JFrame{
                 addEmp.setVisible(true);
             }
         });
-        addData.setBounds(20, 95, 154, 23);
+        addData.setBounds(20, 65, 154, 23);
         contentPane.add(addData);
-
 
         JButton deleteBtn = new JButton("Delete");
         deleteBtn.addActionListener(new ActionListener() {
@@ -97,12 +103,18 @@ public class EmployeesWindow extends JFrame{
 
         scrollPane = new JScrollPane();
         scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.setBounds(184, 44, 587, 221);
         contentPane.add(scrollPane);
 
         employeeTable = new JTable();
+        employeeTable.setSize(40, 14);
         employeeTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         scrollPane.setViewportView(employeeTable);
+
+        tutorTimeTable = new JTable();
+        tutorTimeTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+        scrollPane.setViewportView(tutorTimeTable);
 
         textFieldTUID = new JTextField();
         textFieldTUID.setBounds(88, 195, 86, 20);
@@ -113,6 +125,44 @@ public class EmployeesWindow extends JFrame{
         deleteLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
         deleteLabel.setBounds(60, 170, 86, 14);
         contentPane.add(deleteLabel);
+
+        tutors_who_work_at_this_time = new JLabel("Find tutors who work at: ");
+        tutors_who_work_at_this_time.setFont(new Font("Tahoma", Font.BOLD, 11));
+        tutors_who_work_at_this_time.setBounds(15, 90, 160, 14);
+        contentPane.add(tutors_who_work_at_this_time);
+
+        tutorTime = new JTextField();
+        tutorTime.setBounds(60, 105, 86, 20);
+        contentPane.add(tutorTime);
+
+        tutorTimeBtn = new JButton("Find Tutors");
+        tutorTimeBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String query="select FNAME, LNAME, POSITION, SUN_START, SUN_END, M_START, M_END, TU_START, TU_END, W_START, W_END, TH_START, TH_END, FRI_START, FRI_END\n" +
+                        "from "+MySQLConnection.username+"db.EMPLOYEE WHERE POSITION = 'Tutor'\n" +
+                        "and SUN_START <= '"+tutorTime.getText()+"'and SUN_END > '"+tutorTime.getText()+"'\n" +
+                        "or M_START <= '"+tutorTime.getText()+"' and M_END > '"+tutorTime.getText()+"'\n" +
+                        "or TU_START <= '"+tutorTime.getText()+"' and TU_END > '"+tutorTime.getText()+"'\n" +
+                        "or W_START <= '"+tutorTime.getText()+"' and W_END > '"+tutorTime.getText()+"'\n" +
+                        "or TH_START <= '"+tutorTime.getText()+"' and TH_END > '"+tutorTime.getText()+"'\n" +
+                        "or FRI_START <= '"+tutorTime.getText()+"' and FRI_END > '"+tutorTime.getText()+"';";
+                PreparedStatement pst;
+                try{
+                    pst = connection.prepareStatement(query);
+                    try{
+                        ResultSet resultSet = pst.executeQuery();
+                        tutorTimeTable.setModel(DbUtils.resultSetToTableModel(resultSet));
+                    }catch (Exception ex){
+                        JOptionPane.showMessageDialog(null, ex);
+                    }
+                }catch (Exception ex){
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
+        });
+        tutorTimeBtn.setBounds(50, 130, 100, 23);
+        contentPane.add(tutorTimeBtn);
 
         labelTUID = new JLabel("TUID");
         labelTUID.setBounds(35, 198, 32, 14);
