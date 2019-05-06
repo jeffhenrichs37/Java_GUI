@@ -55,6 +55,18 @@ public class App {
         appointemntBtn = new JButton("Appointments");
         appointemntBtn.setBounds(25, 75, 125, 35);
         panel.add(appointemntBtn);
+        appointemntBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AppointmentWindow app = null;
+                try{
+                    app = new AppointmentWindow();
+                }catch (Exception ex){
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+                app.setVisible(true);
+            }
+        });
 
         collegeBtn = new JButton("Colleges");
         collegeBtn.setBounds(25, 115, 125, 35);
@@ -113,8 +125,7 @@ public class App {
         tutorBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                TutorsWindow tutors = new TutorsWindow();
-                tutors.setVisible(true);
+
             }
         });
 

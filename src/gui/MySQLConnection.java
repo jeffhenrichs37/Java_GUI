@@ -10,9 +10,6 @@ public class MySQLConnection extends JFrame {
     static final String dbPath = "jdbc:mysql://triton.towson.edu:3360/";
     static Connection connection = null;
 
-
-
-
     /**
      * If in testMode, connections to the appropriate student DB for login information. Otherwise uses path supplied by the constructor
      * @return connection to DB
@@ -31,8 +28,6 @@ public class MySQLConnection extends JFrame {
     }
 
 
-
-
     /**
      * Gets the ResultSet. You might want this and I need it
      * @param query the query sent in
@@ -44,7 +39,6 @@ public class MySQLConnection extends JFrame {
         Statement queryStatement = connection.createStatement();
         return queryStatement.executeQuery(query);
     }
-
 
     public void printQuery(String query) throws SQLException
     {

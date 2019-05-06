@@ -2,25 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bba77304-4ff0-46b4-b314-5b5e6823732d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_3_0_14_production_bin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_16.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/rs2xml.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/MySQLConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/AddAppointmentWindow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/AppointmentWindow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/CollegeWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Project/gui/AddEmployeeWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Project/gui/AddEmployeeWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Project/gui/App$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Project/gui/App$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Project/gui/App$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Project/gui/App$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Project/gui/App$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Project/gui/App$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUI_Project/gui/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Project/gui/App.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GUI_Project/gui/EmployeesWindow$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Project/gui/EmployeesWindow$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GUI_Project/gui/EmployeesWindow$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Project/gui/EmployeesWindow$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GUI_Project/gui/EmployeesWindow$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Project/gui/EmployeesWindow$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GUI_Project/gui/EmployeesWindow$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Project/gui/EmployeesWindow$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GUI_Project/gui/EmployeesWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Project/gui/EmployeesWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/AddEmployeeWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AddEmployeeWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GUI_Project/gui/MySQLConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUI_Project/gui/MySQLConnection.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/EmployeesWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/EmployeesWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MySQLConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MySQLConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/TutorsWindow.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,24 +38,24 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="iml" value="1" />
-          <entry key="java" value="6" />
+          <entry key="java" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="6" />
+          <entry key="JAVA" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="2" />
-          <entry key="java" value="8274" />
+          <entry key="java" value="9806" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="8274" />
+          <entry key="JAVA" value="9806" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -71,8 +66,49 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="376">
+              <caret line="66" column="35" selection-start-line="66" selection-start-column="35" selection-end-line="66" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/AddAppointmentWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="272" column="41" lean-forward="true" selection-start-line="272" selection-start-column="41" selection-end-line="272" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$USER_HOME$/Downloads/-.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/AppointmentWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1207">
+              <caret line="71" column="43" lean-forward="true" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/EmployeesWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1094">
+              <caret line="68" column="13" lean-forward="true" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -83,8 +119,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/MySQLConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="26" column="53" selection-start-line="26" selection-start-column="53" selection-end-line="26" selection-end-column="53" />
+            <state relative-caret-position="493">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -92,14 +128,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/gui/EmployeesWindow.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/CollegeWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="80" column="128" selection-start-line="80" selection-start-column="128" selection-end-line="80" selection-end-column="128" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="34">
+              <caret line="2" column="28" lean-forward="true" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -107,20 +140,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/AddEmployeeWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2618">
-              <caret line="222" column="150" selection-start-line="222" selection-start-column="150" selection-end-line="222" selection-end-column="150" />
+            <state relative-caret-position="206">
+              <caret line="266" lean-forward="true" selection-start-line="266" selection-end-line="266" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/TutorsWindow.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -148,15 +172,23 @@
         <option value="$PROJECT_DIR$/src/App.java" />
         <option value="$PROJECT_DIR$/src/gui/Mainframe.java" />
         <option value="$PROJECT_DIR$/src/gui/MainFrame.java" />
+        <option value="$PROJECT_DIR$/src/gui/AddEmployeeWindow.java" />
+        <option value="$PROJECT_DIR$/src/gui/MySQLConnection.java" />
         <option value="$PROJECT_DIR$/src/gui/TutorsWindow.java" />
         <option value="$PROJECT_DIR$/src/gui/App.java" />
-        <option value="$PROJECT_DIR$/src/gui/MySQLConnection.java" />
-        <option value="$PROJECT_DIR$/src/gui/AddEmployeeWindow.java" />
         <option value="$PROJECT_DIR$/src/gui/EmployeesWindow.java" />
+        <option value="$PROJECT_DIR$/src/gui/AppointmentWindow.java" />
+        <option value="$PROJECT_DIR$/src/gui/AddAppointmentWindow.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-11" />
     <option name="width" value="980" />
     <option name="height" value="1031" />
@@ -200,7 +232,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557103182611" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557114335222" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -254,7 +286,7 @@
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.43844858" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.4194332" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -264,7 +296,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3250444" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3197158" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -280,7 +312,7 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="7" side_tool="true" weight="0.32715008" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" weight="0.69477236" />
@@ -320,27 +352,27 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java" />
-    <entry file="file://$PROJECT_DIR$/src/gui/App.java">
+    <entry file="file://$PROJECT_DIR$/src/gui/CollegeWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="34">
+          <caret line="2" column="28" lean-forward="true" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/TutorsWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="33" column="78" selection-start-line="33" selection-start-column="78" selection-end-line="33" selection-end-column="78" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/TutorsWindow.java">
+    <entry file="file://$PROJECT_DIR$/src/gui/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/MySQLConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="26" column="53" selection-start-line="26" selection-start-column="53" selection-end-line="26" selection-end-column="53" />
+        <state relative-caret-position="376">
+          <caret line="66" column="35" selection-start-line="66" selection-start-column="35" selection-end-line="66" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -349,8 +381,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/AddEmployeeWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2618">
-          <caret line="222" column="150" selection-start-line="222" selection-start-column="150" selection-end-line="222" selection-end-column="150" />
+        <state relative-caret-position="206">
+          <caret line="266" lean-forward="true" selection-start-line="266" selection-end-line="266" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/MySQLConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -359,13 +401,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/EmployeesWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="80" column="128" selection-start-line="80" selection-start-column="128" selection-end-line="80" selection-end-column="128" />
+        <state relative-caret-position="1094">
+          <caret line="68" column="13" lean-forward="true" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/AppointmentWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1207">
+          <caret line="71" column="43" lean-forward="true" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/AddAppointmentWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="272" column="41" lean-forward="true" selection-start-line="272" selection-start-column="41" selection-end-line="272" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/-.java">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
